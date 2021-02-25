@@ -41,7 +41,7 @@ export default function Home() {
               </a>
               <a href="" className={styles.btn2}>
                 Cadastre um campo
-              </a>
+               </a>
             </div>
           </div>
         </section>
