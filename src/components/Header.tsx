@@ -15,12 +15,17 @@ export function Header({ page }: HeaderProps) {
 
         <ul className={styles.list}>
           <li>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+          </li>
+          <li>
             {page === "NewField" ? (
-              <Link href="">
+              <Link href="/fields">
                 <a>Encontre um campo</a>
               </Link>
             ) : (
-              <Link href="">
+              <Link href="/newfield">
                 <a>Cadastre um campo</a>
               </Link>
             )}

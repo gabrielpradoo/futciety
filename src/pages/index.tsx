@@ -17,13 +17,19 @@ export default function Home() {
 
           <ul className={styles.list}>
             <li>
-              <a href="">Cadastre seu Campo</a>
+              <Link href="/newfield">
+                <a>Cadastre seu Campo</a>
+              </Link>
             </li>
             <li>
-              <a href="">Sobre Nós</a>
+              <Link href="/about">
+                <a>Sobre Nós</a>
+              </Link>
             </li>
             <li>
-              <a href="">Contato</a>
+              <Link href="/contact">
+                <a>Contato</a>
+              </Link>
             </li>
           </ul>
         </header>
@@ -39,7 +45,7 @@ export default function Home() {
             </p>
 
             <div className={styles.buttons}>
-              <Link href="">
+              <Link href="/fields">
                 <a className={styles.btn1}>Encontre um Fut</a>
               </Link>
 
@@ -50,7 +56,7 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <Footer />
+      <Footer position="absolute" />
     </>
   );
 }
