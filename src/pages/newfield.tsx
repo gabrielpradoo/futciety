@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Footer } from "../components/Footer";
+import { Header } from "../components/Header";
 import styles from "../styles/NewField.module.css";
 
 type Props = {
@@ -38,31 +39,7 @@ export default function CreateNewField() {
       <section className={styles.bgImg}>
         <img src="/img/field.png" alt="Soccer Field" />
       </section>
-      <header className={styles.headerContainer}>
-        <div className={styles.headerContent}>
-          <div className={styles.logo}>
-            <img src="/svg/logo.svg" alt="Futciety Logo" />
-          </div>
-
-          <ul className={styles.list}>
-            <li>
-              <Link href="">
-                <a>Encontre um campo</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="">
-                <a>Sobre Nós</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="">
-                <a>Contato</a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </header>
+      <Header page="NewField" />
       <section className={styles.main}>
         <form onSubmit={handleData}>
           <h1>

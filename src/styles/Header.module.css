@@ -1,0 +1,48 @@
+/* HEADER */
+
+.headerContainer {
+  width: 100%;
+  height: 85px;
+
+  background: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerContent {
+  max-width: 1440px;
+  width: 95%;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerContent .logo {
+  max-height: 53px;
+}
+
+.headerContent .logo img {
+  max-width: 53px;
+  width: 100%;
+  height: auto;
+}
+
+.headerContent .list {
+  display: flex;
+}
+
+.headerContent .list li {
+  margin-left: 53px;
+}
+
+.headerContent .list li a {
+  color: #fff;
+  transition: 0.7s ease;
+}
+
+.headerContent .list li a:hover {
+  text-decoration: underline;
+}
