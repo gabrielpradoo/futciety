@@ -1,0 +1,19 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  height: 30px;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #2d2d2d;
+}
+
+.footer p {
+  font: 600 1rem "Rajdhani", sans-serif;
+  color: #fff;
+}

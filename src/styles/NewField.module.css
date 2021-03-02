@@ -1,3 +1,36 @@
+/* BACKGROUND  */
+
+.bgImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: -1;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgImg::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+
+  background: rgba(26, 26, 26, 0.9);
+}
+
+/* HEADER */
+
 .headerContainer {
   width: 100%;
   height: 85px;
@@ -11,9 +44,177 @@
 .headerContent {
   max-width: 1440px;
   width: 95%;
-  margin: 0 auto;
+  margin: auto;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.headerContent .logo {
+  max-height: 53px;
+}
+
+.headerContent .logo img {
+  max-width: 53px;
+  width: 100%;
+  height: auto;
+}
+
+.headerContent .list {
+  display: flex;
+}
+
+.headerContent .list li {
+  margin-left: 53px;
+}
+
+.headerContent .list li a {
+  color: #fff;
+  transition: 0.7s ease;
+}
+
+.headerContent .list li a:hover {
+  text-decoration: underline;
+}
+
+/* MAIN */
+
+.main {
+  display: flex;
+
+  width: 100%;
+  height: calc(100vh - 85px - 30px);
+
+  justify-content: center;
+  align-items: center;
+}
+
+.main form {
+  max-width: 1440px;
+  width: 95%;
+
+  margin: auto;
+  padding: 1rem 2rem;
+
+  background: #e1e1e1;
+
+  border-radius: 5px;
+}
+
+.main h1 {
+  margin-top: 0;
+}
+
+.main form fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main form fieldset legend {
+  font: 500 1.3rem "Mukta", sans-serif;
+}
+
+.main form fieldset > .field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.main form fieldset > .field input {
+  height: 30px;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+}
+
+.main form .groupFieldset {
+  display: flex;
+  gap: 4rem;
+}
+
+.main form fieldset > .fieldGroup {
+  display: flex;
+  gap: 2rem;
+}
+
+.main form fieldset > .fieldGroup > .field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.main form fieldset > .fieldGroup > .field input {
+  width: 250px;
+  height: 30px;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #d1d1d1;
+}
+
+.main form .btn1 {
+  display: inline-block;
+
+  padding: 12px 32px;
+  border-radius: 3px;
+
+  transform: skewX(-10deg);
+  transition: 0.7s ease;
+  text-transform: uppercase;
+
+  background: #2d2d2d;
+
+  position: relative;
+
+  cursor: pointer;
+
+  color: #fff;
+}
+.main form .btn1::after {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+
+  opacity: 0;
+  transition: 0.7s ease;
+
+  content: "";
+  display: block;
+
+  width: 30%;
+  height: 70%;
+
+  border-radius: 3px;
+
+  border-top: 3px solid #22c25f;
+  border-left: 3px solid #22c25f;
+}
+.main form .btn1::before {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+
+  opacity: 0;
+  transition: 0.7s ease;
+
+  content: "";
+  display: block;
+
+  width: 30%;
+  height: 70%;
+
+  border-radius: 3px;
+
+  border-bottom: 3px solid #22c25f;
+  border-right: 3px solid #22c25f;
+}
+.main form .btn1:hover {
+  transform: skewX(-10deg) scale(1.05);
+}
+.main form .btn1:hover::after {
+  opacity: 1;
+}
+.main form .btn1:hover::before {
+  opacity: 1;
 }

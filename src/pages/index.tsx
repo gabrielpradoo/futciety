@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { Footer } from "../components/Footer";
+
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -36,16 +39,18 @@ export default function Home() {
             </p>
 
             <div className={styles.buttons}>
-              <a href="" className={styles.btn1}>
-                Encontre um Fut
-              </a>
-              <a href="" className={styles.btn2}>
-                Cadastre um campo
-               </a>
+              <Link href="">
+                <a className={styles.btn1}>Encontre um Fut</a>
+              </Link>
+
+              <Link href="/newfield">
+                <a className={styles.btn2}>Cadastre um campo</a>
+              </Link>
             </div>
           </div>
         </section>
       </div>
+      <Footer />
     </>
   );
 }

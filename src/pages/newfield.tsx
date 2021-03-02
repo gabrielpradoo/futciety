@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { useState } from "react";
+import { Footer } from "../components/Footer";
 import styles from "../styles/NewField.module.css";
 
 type Props = {
@@ -16,8 +18,26 @@ export default function CreateNewField() {
   const [address, setAddress] = useState<string>();
   const [address2, setAddress2] = useState<string>();
 
+  function handleData(e) {
+    e.preventDefault();
+    console.log({
+      fieldName,
+      propertyName,
+      fieldImage,
+      email,
+      whatsapp,
+      opening,
+      closure,
+      address,
+      address2,
+    });
+  }
+
   return (
     <>
+      <section className={styles.bgImg}>
+        <img src="/img/field.png" alt="Soccer Field" />
+      </section>
       <header className={styles.headerContainer}>
         <div className={styles.headerContent}>
           <div className={styles.logo}>
@@ -26,24 +46,29 @@ export default function CreateNewField() {
 
           <ul className={styles.list}>
             <li>
-              <a href="">Cadastre seu Campo</a>
+              <Link href="">
+                <a>Encontre um campo</a>
+              </Link>
             </li>
             <li>
-              <a href="">Sobre Nós</a>
+              <Link href="">
+                <a>Sobre Nós</a>
+              </Link>
             </li>
             <li>
-              <a href="">Contato</a>
+              <Link href="">
+                <a>Contato</a>
+              </Link>
             </li>
           </ul>
         </div>
       </header>
       <section className={styles.main}>
-        <form action="">
+        <form onSubmit={handleData}>
           <h1>
             Cadastro do <br />
             campo ou quadra
           </h1>
-
           <fieldset>
             <legend>Dados Gerais</legend>
 
@@ -86,59 +111,60 @@ export default function CreateNewField() {
             </div>
           </fieldset>
 
-          <fieldset>
-            <legend>Contato</legend>
+          <div className={styles.groupFieldset}>
+            <fieldset>
+              <legend>Contato</legend>
 
-            <div className={styles.fieldGroup}>
-              <div className={styles.field}>
-                <label htmlFor="email">E-mail</label>
-                <input
-                  required
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  name="email"
-                  id="email"
-                />
+              <div className={styles.fieldGroup}>
+                <div className={styles.field}>
+                  <label htmlFor="email">E-mail</label>
+                  <input
+                    required
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    name="email"
+                    id="email"
+                  />
+                </div>
+
+                <div className={styles.field}>
+                  <label htmlFor="whatsapp">Whatsapp</label>
+                  <input
+                    required
+                    type="text"
+                    value={whatsapp}
+                    onChange={(e) => setWhatsapp(e.target.value)}
+                    name="whatsapp"
+                    id="whatsapp"
+                  />
+                </div>
               </div>
+            </fieldset>
 
-              <div className={styles.field}>
-                <label htmlFor="whatsapp">Whatsapp</label>
-                <input
-                  required
-                  type="text"
-                  value={whatsapp}
-                  onChange={(e) => setWhatsapp(e.target.value)}
-                  name="whatsapp"
-                  id="whatsapp"
-                />
+            <fieldset>
+              <legend>Horários</legend>
+
+              <div className={styles.fieldGroup}>
+                <div className={styles.field}>
+                  <label htmlFor="opening">Abre às</label>
+                  <input
+                    type="time"
+                    value={opening}
+                    onChange={(e) => setOpening(e.target.value)}
+                  />
+                </div>
+                <div className={styles.field}>
+                  <label htmlFor="closure">Fecha às</label>
+                  <input
+                    type="time"
+                    value={closure}
+                    onChange={(e) => setClosure(e.target.value)}
+                  />
+                </div>
               </div>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Horários</legend>
-
-            <div className={styles.fieldGroup}>
-              <div className={styles.field}>
-                <label htmlFor="opening">Abre às</label>
-                <input
-                  type="time"
-                  value={opening}
-                  onChange={(e) => setOpening(e.target.value)}
-                />
-              </div>
-              <div className={styles.field}>
-                <label htmlFor="closure">Fecha às</label>
-                <input
-                  type="time"
-                  value={closure}
-                  onChange={(e) => setClosure(e.target.value)}
-                />
-              </div>
-            </div>
-          </fieldset>
-
+            </fieldset>
+          </div>
           <fieldset>
             <legend>Endereço</legend>
 
@@ -170,8 +196,13 @@ export default function CreateNewField() {
               </div>
             </div>
           </fieldset>
+
+          <button type="submit" className={styles.btn1}>
+            Cadastrar
+          </button>
         </form>
       </section>
+      <Footer />
     </>
   );
 }
