@@ -51,12 +51,16 @@
 .header .list {
   display: flex;
 
-  width: 50%;
+  width: 70%;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .header .list > li {
   margin-left: 105px;
+}
+.header .list > li:first-child {
+  margin-left: 0;
 }
 
 .header .list > li > a {

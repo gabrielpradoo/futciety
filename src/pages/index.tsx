@@ -1,9 +1,12 @@
 import Link from "next/link";
+
+import { signIn, signOut, useSession } from "next-auth/client";
 import { Footer } from "../components/Footer";
 
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
+  const [session, loading] = useSession();
   return (
     <>
       <section className={styles.bgImg}>
@@ -31,6 +34,32 @@ export default function Home() {
                 <a>Contato</a>
               </Link>
             </li>
+
+            <li>
+              {!session && (
+                <button
+                  onClick={(): Promise<void> => signIn("auth0")}
+                  className={styles.btnLogin}
+                >
+                  Faça login
+                </button>
+              )}
+              {session && (
+                <>
+                  <img
+                    style={{
+                      width: "45px",
+                      height: "45px",
+                      borderRadius: "50%",
+                      cursor: "pointer",
+                    }}
+                    src={session.user.image}
+                    onClick={(): Promise<void> => signOut()}
+                    className={styles.btnLogout}
+                  ></img>
+                </>
+              )}
+            </li>
           </ul>
         </header>
         <section className={styles.main}>
@@ -55,6 +84,26 @@ export default function Home() {
             </div>
           </div>
         </section>
+        {loading && (
+          <div
+            style={{
+              position: "absolute",
+              width: "100vw",
+              height: "100vh",
+              background: "rgba(26, 26, 26, 0.7004)",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <h1 style={{ fontSize: "72px" }}>Carregando</h1>
+          </div>
+        )}
       </div>
       <Footer isPositionAbsolute={true} />
     </>

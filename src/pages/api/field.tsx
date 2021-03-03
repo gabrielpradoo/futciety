@@ -15,6 +15,8 @@ interface SuccessResponseType {
   closure: string;
   address: string;
   address2: string;
+  city: string;
+  state: string;
 }
 
 export default async (
@@ -32,6 +34,10 @@ export default async (
       closure,
       address,
       address2,
+      city,
+      state,
+      available_hours,
+      appointments,
     } = req.body;
 
     if (
@@ -43,7 +49,11 @@ export default async (
       !opening ||
       !closure ||
       !address ||
-      !address2
+      !address2 ||
+      !city ||
+      !state ||
+      !available_hours ||
+      !appointments
     ) {
       res.status(400).json({ error: "Missing body parameter" });
       return;
@@ -59,6 +69,10 @@ export default async (
       closure,
       address,
       address2,
+      city,
+      state,
+      available_hours: available_hours || {},
+      appointments: appointments || [],
     });
 
     res.status(200).json(response.ops[0]);
