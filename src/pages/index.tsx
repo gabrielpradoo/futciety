@@ -56,7 +56,7 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <Footer position="absolute" />
+      <Footer isPositionAbsolute={true} />
     </>
   );
 }

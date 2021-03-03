@@ -2,11 +2,8 @@ import Link from "next/link";
 import { useState } from "react";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import styles from "../styles/NewField.module.css";
 
-type Props = {
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
+import styles from "../styles/NewField.module.css";
 
 export default function CreateNewField() {
   const [fieldName, setFieldName] = useState<string>();
@@ -21,17 +18,6 @@ export default function CreateNewField() {
 
   function handleData(e) {
     e.preventDefault();
-    console.log({
-      fieldName,
-      propertyName,
-      fieldImage,
-      email,
-      whatsapp,
-      opening,
-      closure,
-      address,
-      address2,
-    });
   }
 
   return (
@@ -179,7 +165,7 @@ export default function CreateNewField() {
           </button>
         </form>
       </section>
-      <Footer />
+      <Footer isPositionAbsolute={false} />
     </>
   );
 }

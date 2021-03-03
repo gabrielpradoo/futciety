@@ -43,7 +43,7 @@ export default function Fields({ data }) {
           );
         })}
       </div>
-      <Footer position="static" />
+      <Footer isPositionAbsolute={false} />
     </>
   );
 }

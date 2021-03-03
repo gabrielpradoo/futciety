@@ -1,13 +1,30 @@
+import { CSSProperties } from "react";
 import styles from "../styles/Footer.module.css";
 
 interface FooterProps {
-  position: "static" | "relative" | "absolute" | "sticky" | "fixed";
+  isPositionAbsolute: boolean;
 }
 
-export function Footer({ position }: FooterProps) {
-  return (
+export function Footer({ isPositionAbsolute }: FooterProps) {
+  return isPositionAbsolute ? (
     <>
-      <footer className={styles.footer} style={{ position: `${position}` }}>
+      <footer
+        className={styles.footer}
+        style={{
+          position: "absolute",
+        }}
+      >
+        <p>Desenvolvido por Gabriel do Prado 🚀</p>
+      </footer>
+    </>
+  ) : (
+    <>
+      <footer
+        className={styles.footer}
+        style={{
+          position: "static",
+        }}
+      >
         <p>Desenvolvido por Gabriel do Prado 🚀</p>
       </footer>
     </>
